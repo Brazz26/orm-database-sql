@@ -27,8 +27,8 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id
       },
-      include: [Product,
-        ProductTag
+      include: [{model:Product,
+        through:ProductTag}
       ]
     })
     res.status(200).json(oneTag)

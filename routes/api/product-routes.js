@@ -29,7 +29,10 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id
       },
-      include: [Product]
+      include: [Category,
+      {model: Tag,
+        through: ProductTag}
+      ]
     })
     res.status(200).json(oneProduct)
   } catch (error) {
